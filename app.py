@@ -29,7 +29,7 @@ def save_data():
         return jsonify({'error': 'Invalid request'}), 400
     
 @api.route('/file/data', methods=['GET'])
-def get_file_data():
+def get_file_data_ok():
     with open("data.txt", 'r') as fin:
         data_file = fin.readlines()
         fin.close()
