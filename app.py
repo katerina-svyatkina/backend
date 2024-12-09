@@ -1,4 +1,7 @@
 from flask import Flask, request, jsonify
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 api = Flask(__name__)
@@ -34,3 +37,9 @@ def get_file_data_ok():
         data_file = fin.readlines()
         fin.close()
     return {'file_data': data_file}
+
+
+logging.info("Сервер запущен на порту 5000")
+
+if __name__ == "__main__":
+    api.run(host="0.0.0.0", debug=True, port="5000")
